@@ -4,7 +4,7 @@ This is an expiremental project for creating a dsl around comparing the value
 from multiple sources. The idea is that you have obtained data from three or
 four locations and want to dislay them to the user.
 
-```csharp
+```html
 @using Sources
 @model IEnumerable<SearchResultsCount<SearchResults>>
 
