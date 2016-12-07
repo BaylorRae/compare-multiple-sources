@@ -6,6 +6,12 @@ namespace CompareMultipleSources
   {
     protected Dictionary<T, object> Values = new Dictionary<T, object>();
 
+    public object this[T source]
+    {
+      get { return SourceValue(source); }
+      set { AddSource(source, value); }
+    }
+
     public void AddSource(T source, object value)
     {
       Values[source] = value;

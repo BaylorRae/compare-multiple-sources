@@ -29,6 +29,20 @@ namespace CompareMultipleSources.Test
     }
 
     [Test]
+    public void ItAllowsSquareBracketSetter()
+    {
+      _exampleValues[ExampleSources.Movie] = "movie";
+      Assert.That(_exampleValues.SourceValue(ExampleSources.Movie), Is.EqualTo("movie"));
+    }
+
+    [Test]
+    public void ItAllowsSquareBracketGetter()
+    {
+      _exampleValues.AddSource(ExampleSources.Music, "music");
+      Assert.That(_exampleValues[ExampleSources.Music], Is.EqualTo("music"));
+    }
+
+    [Test]
     public void ItDefaultsToNull()
     {
       Assert.That(_exampleValues.SourceValue(ExampleSources.FooBar), Is.EqualTo(null));
