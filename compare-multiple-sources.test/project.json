@@ -1,10 +1,18 @@
 {
+  "name": "compare-multiple-sources.test",
   "version": "1.0.0-*",
   "buildOptions": {
     "debugType": "portable",
     "emitEntryPoint": true
   },
-  "dependencies": {},
+  "dependencies": {
+    "NUnit": "3.5.0",
+    "dotnet-test-nunit": "3.4.0-beta-3",
+    "compare-multiple-sources": {
+      "target": "project"
+    }
+  },
+  "testRunner": "nunit",
   "frameworks": {
     "netcoreapp1.0": {
       "dependencies": {
