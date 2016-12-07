@@ -6,7 +6,7 @@ four locations and want to display them to the user.
 
 ```html
 @using Sources
-@model IEnumerable<SearchResultsCount<SearchResults>>
+@model IEnumerable<SearchResultsCount>
 
 <h2>Google Search Results Counts</th>
 
