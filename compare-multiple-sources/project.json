@@ -5,7 +5,9 @@
     "debugType": "portable",
     "emitEntryPoint": true
   },
-  "dependencies": {},
+  "dependencies": {
+    "AutoMapper": "5.2.0"
+  },
   "frameworks": {
     "netcoreapp1.0": {
       "dependencies": {
