@@ -3,7 +3,7 @@ using NUnit.Framework;
 namespace CompareMultipleSources.Test
 {
   [TestFixture]
-  public class ValuesWithSourcesTest
+  public class ValuesWithSourcesGenericTest
   {
     private ExampleValues _exampleValues;
 
@@ -54,6 +54,22 @@ namespace CompareMultipleSources.Test
       Assert.That(_exampleValues.SourceValue(ExampleSources.FooBar, "N/A"), Is.EqualTo("N/A"));
     }
 
+    [Test]
+    public void ItAllowsATypeToBeAssigned()
+    {
+      var stringValues = new ExampleValues<string>();
+      stringValues[ExampleSources.Movie] = "movie-name";
+      Assert.That(stringValues[ExampleSources.Movie], Is.TypeOf(typeof(string)));
+    }
+
+    [Test]
+    public void ItAllowsCustomClass()
+    {
+      var classValues = new ExampleValues<Walrus>();
+      classValues[ExampleSources.FooBar] = new Walrus();
+      Assert.That(classValues[ExampleSources.FooBar], Is.TypeOf(typeof(Walrus)));
+    }
+
     internal enum ExampleSources
     {
       Music,
@@ -62,6 +78,12 @@ namespace CompareMultipleSources.Test
     }
 
     internal class ExampleValues : ValuesWithSources<ExampleSources>
+    {}
+
+    internal class ExampleValues<T> : ValuesWithSources<T, ExampleSources>
+    { }
+
+    internal class Walrus
     {}
   }
 }
