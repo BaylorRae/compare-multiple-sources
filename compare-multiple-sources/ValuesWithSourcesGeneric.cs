@@ -19,14 +19,7 @@ namespace CompareMultipleSources
 
     public TType SourceValue(TSources source)
     {
-      try
-      {
-        return Values[source];
-      }
-      catch (KeyNotFoundException)
-      {
-        return default(TType);
-      }
+      return SourceValue(source, default(TType));
     }
 
     public TType SourceValue(TSources source, TType defaultValue)
